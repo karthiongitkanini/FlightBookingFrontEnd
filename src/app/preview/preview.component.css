@@ -1,0 +1,32 @@
+.divCancelTicket{
+    position: absolute;
+     left: 40%;
+     padding-left: 12px;
+     margin-top: 50px;
+     
+}
+table{
+    position: absolute;
+     width: 300px;
+     height: 500px;
+     text-align: center;
+     /* box-shadow: 5px 7px 10px dimgray; */
+     border-radius: 3%;
+ }
+ .btnConfirm{
+     font-size: 22px;
+     padding: 5px 20px;
+     position: relative;
+     left: 11%;
+     top: 10%;
+     width: 400px;
+      font-weight: lighter;
+   }
+   .btnConfirm:hover{
+       background-color: white;
+       color: blueviolet;
+       font-weight: 1000%;
+   }
+ td{
+     font-weight: bolder;
+ }

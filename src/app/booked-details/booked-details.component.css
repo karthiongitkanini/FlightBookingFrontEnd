@@ -1,0 +1,283 @@
+
+/* h1{
+    font-size:250px;
+    margin-left:9.5%;
+    opacity: 0.5;
+} */@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+.basic-container {
+  padding: 30px;
+}
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+
+
+/*for plus minus button*/
+.qty .count {
+  color: #000;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 0 2px
+  ;min-width: 35px;
+  text-align: center;
+}
+.qty .plus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font: 30px/1 Arial,sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  }
+.qty .minus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font: 30px/1 Arial,sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
+div {
+  text-align: center;
+}
+.minus:hover{
+  background-color: #717fe0 !important;
+}
+.plus:hover{
+  background-color: #717fe0 !important;
+}
+/*Prevent text selection*/
+span{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+input{  
+  border: 0;
+  width: 2%;
+}
+nput::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:disabled{
+  background-color:white;
+}
+       
+/* ----------------for nav bar starts-------------- */
+/* ----------------for nav bar starts-------------- */
+
+
+.btnSearchFlights{
+  padding-left:330px;
+  padding-top:-81px;
+}
+#btnSearchFlights {
+  background: transparent;
+  background-color: transparent;
+  border: 1px solid blueviolet;
+  font-size: 21px;
+  font-weight: lighter;
+  font-family: Calibri;
+  color: blueviolet;
+  padding: 10px 15px;
+  border-radius: 0px;
+}
+#btnSearchFlights:hover {
+  background: blueviolet;
+  color: white;
+}
+.navbar-header{
+  font-size:50px; 
+}
+nav{
+  box-shadow: 0.5px 0.5px 20px dimgray;
+  align-content: right;
+  align-items: right;
+  border-radius: 0%;
+  background-color: white;
+  height:80px;
+  z-index:10;
+  overflow: hidden;
+  border-bottom-color: white;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  transition: .5s;
+  }
+ 
+#HomePageBackground {
+  max-width: 100%;
+  max-height: 89%;
+}
+  ul{
+  display: inline-block;
+  margin-left: 60%;
+}
+
+
+/* -------FOR SIDE NAV-------------- */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* ----------------for nav bar ends-------------- */
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #3b3b3b;
+  -webkit-font-smoothing: antialiased;
+
+  background: #fff;
+}
+@media screen and (max-width: 580px) {
+  body {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.wrapper-table {
+  margin: 0 auto;
+  padding: 40px;
+  max-width: 100%;
+}
+
+.table {
+  margin: 0;
+  width: 100%;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.14), 0 20px 70px rgba(0,0,0,0.12);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+.row {
+  display: table-row;
+  background: #f6f6f6;
+}
+.row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+.row.header {
+  font-weight: 800;
+  color: #ffffff;
+  background:purple;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 14px 0 7px;
+    display: block;
+  }
+  .row.header {
+    padding: 0;
+    height: 6px;
+  }
+  .row.header .cell {
+    display: none;
+  }
+  .row .cell {
+    margin-bottom: 10px;
+  }
+  .row .cell:before {
+    margin-bottom: 3px;
+    content: attr(data-title);
+    min-width: 98px;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #969696;
+    display: block;
+  }
+}
+
+.cell {
+  padding: 20px 16px;
+  display: table-cell;
+  font-size: x-large;
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 8px 16px;
+    display: block;
+  }
+}
+
+.heading {
+    color: #444444;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #ccc;
+}
+
+/**/
+.logo
+{
+position: absolute;
+padding-left: 50px;}
+
+#book{
+    
+    margin-left: 20%;
+}

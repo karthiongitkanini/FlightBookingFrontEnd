@@ -1,0 +1,83 @@
+<!-- -----------NAVIGATION BAR STARTS------------ -->
+<div id="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+      <div class="container-fluid">
+        <div class="navbar-header">
+  
+          <!-- -----SIDE NAV--------- -->
+          <!-- <div id="mySidenav" style="overflow:hidden;" class="sidenav">
+              <button
+                style="font-size:30px;cursor:pointer;color:blueviolet; border:2px solid blueviolet; background: transparent;"
+                (click)="closeNavbu()" class="closebtn">&times;</button>
+              <a routerLink="">Flight details</a>
+              <a routerLink="">User Details</a>
+              <a routerLink="">Ticket Details</a>
+              <a routerLink="">Log out</a>
+              <button (click)="goToCancel()">cancel</button>
+              <a routerLink="cancellation">Cancel Ticket</a>
+              
+            </div>
+            <button 
+              style="font-size:40px;cursor:pointer; border:none; background: transparent;  position: absolute;left: 0px; top: 6px; margin-top:0px;margin-left:0px;"
+              (click)="openNavbu()"> 
+              <span>&#9776;</span></button> -->
+          <!-- -----SIDE NAV ends--------- -->
+  
+          <a class="navbar-brand">
+            <img src="../assets/Images/favicon.png" alt="logo"
+              style="width:90px; height:90px; position: relative; top: -200%; left: 40%;">
+          </a>
+          <a class="navbar-brand"
+            style="font-size:40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; position: absolute; color:black;display:inline-block;margin-left: -5%;  margin-top:0%; top:15%">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Breeze
+            Airways </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a>
+              <button (click)="goToLogin()" type="button" class="btn btn-info">
+                <span class="glyphicon glyphicon-log-out"></span>
+                &nbsp;&nbsp;LOGOUT
+              </button>
+            </a>
+          </li>
+          <li>
+            <div style="border-left: 1px solid blueviolet; height: 60px;"></div>
+          </li>
+          <li>
+            <a>
+              <button (click)="goToHome()" type="button" class="btn btn-info">
+                <span class="glyphicon glyphicon-home"></span>
+                &nbsp;&nbsp;HOME
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>          <br><br>  <br>
+  <!-- -----------NAVIGATION BAR ENDS------------ -->
+
+<body>
+
+    <div class="img" style="position: relative; top: -90px;">
+        <!-- <div>
+            <img src="https://img.freepik.com/free-psd/bon-voyage-motivational-lettering-quote-holidays-traveling-concept_23-2148212972.jpg?size=338&ext=jpg"
+            width="200px" height="200px" style="float: left; position: absolute; left:0px;top: 120%; border-radius: 20%;">
+        </div> -->
+         <div>
+            <img src="https://images.squarespace-cdn.com/content/v1/5a1ffcef4c0dbf776ccbc5a1/1534864244982-XZTAQ8WINHRWISFM9GBV/ke17ZwdGBToddI8pDm48kF5p5Fi6T9MQS3XGauu7T8dZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIrQnLfoR4fmphWk35MiuRcUg0qTFGclgUyKxXa8xDp_c/Payment+successful+2+%281%29.png">
+            <!-- <img src="../assets/Images/Capture.PNG"> -->
+            <!-- <img src="../assets/Images/Capture1.PNG"> -->
+        </div>
+        <div class="controls">
+            <script>
+                function simulate();
+            </script>
+        </div>
+    </div>
+    <div id="flight" class="flight"></div>
+    <div class="runway">
+        <div class="runwayNo">27 N</div>
+    </div>
+</body>

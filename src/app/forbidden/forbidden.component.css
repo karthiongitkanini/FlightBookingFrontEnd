@@ -1,0 +1,6 @@
+.contain{
+    position: relative;
+    left: 25%;
+    top: 90%;
+    max-width: 50%;
+}

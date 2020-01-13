@@ -1,0 +1,107 @@
+<div id="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+      <div class="container-fluid">
+        <div class="navbar-header">
+   
+          <a class="navbar-brand" >
+            <img src="../assets/Images/favicon.png" alt="logo"
+              style="width:90px; height:90px; position: absolute; top: -13%; left:8%;">
+          </a>
+          <a class="navbar-brand"  
+            style=" position:absolute; font-size:40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; position: absolute; color:black;display:inline-block;margin-left: -5%;  margin-top:0%; top:15%">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Breeze
+            Airways  </a>
+        </div>
+        <!-- <ul class="nav navbar-nav navbar-right">
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p style="margin-top: -80%;margin-left: 20%; position: absolute;">
+              <button style="font-size: 17px;" type="button" (click)="goToRegister()" class="btn btn-info">
+                <span style="font-size: 17px;" class="glyphicon glyphicon-user"></span>
+                &nbsp;&nbsp;REGISTER
+              </button>
+            </p>
+          </li>
+        </ul> -->
+        <ul class="nav navbar-nav navbar-right">
+        <li>
+
+          <a>
+            <button style="font-size: 18px;" (click)="goToRegister()"  type="button" class="btn btn-info">
+              <span class="glyphicon glyphicon-log-out"></span>
+               &nbsp;REGISTER
+            </button>
+          </a>
+        </li>
+        <li>
+          <div style="border-left: 1px solid blueviolet; height: 60px;"></div>
+        </li>
+        <li>
+          <a>
+            <button (click)="goToHome()"  style="font-size: 18px;" type="button" class="btn btn-info">
+              <span class="glyphicon glyphicon-home"></span>
+              &nbsp;&nbsp;HOME
+            </button>
+          </a>
+        </li>
+      </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- --------------------NAVIGATION BAR ENDS--------- -->
+  <br><br><br><br>
+<!-- ----------LOG IN BEGINS--------------------- -->
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+        <!-- <i class="material-icons">person</i> -->
+     </mat-card-header>
+
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login <br> </mat-card-title>
+        <!-- <mat-card-subtitle>Welcome back!!</mat-card-subtitle> -->
+      </mat-card-header>
+      <br>
+      <mat-card-content>
+        <form class="example-form">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Enter Email ID"    autocomplete="off" [(ngModel)]="login.Email" name="email" #userName
+                    required>
+                  <mat-icon matPrefix style="font-size:27px;">mail&nbsp;&nbsp;&nbsp; </mat-icon>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+
+                  <input matInput placeholder="Enter Password" id="myInput" [(ngModel)]="login.Password" type="password"
+                    name="password" #userPassword required>
+                  <mat-icon matPrefix style="font-size:27px;">lock &nbsp;&nbsp;&nbsp; </mat-icon>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+      <div style="color: red;" *ngIf="IsLoginError===false">
+        <!-- {{result}} -->Incorrect email or password
+        <br>
+      </div>
+      <mat-card-actions>
+        <div class="forgotPassword">
+          <button type="submit" mat-button style="align-self: flex-end;"><span routerLink="/ForgotPassword"><u>Forgot
+              Password?</u></span></button>
+        </div>
+      </mat-card-actions>
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" class="btn-block" id="myBtn" (click)="getUser()">Log In</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-card>
+</div>
+<!-- -----------LOGIN ENDS-------------- -->

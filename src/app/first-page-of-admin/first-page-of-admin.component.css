@@ -1,0 +1,31 @@
+
+ .listOfActions{
+    display: flex;
+}
+#btnActions{
+    background: transparent;
+    border:none;
+    padding: 12px 12px 10px 9px;
+    font-size: 25px;
+     
+}
+#btnActions:visited {
+   background: red;
+ }
+  #btnActions:focus { color: blue;  }
+ #btnActions:hover {  color: blue;}
+ #btnActions:active {  color: blue; }
+ #btnActions#btnActions:hover{
+   color: blue;
+}
+.navbar-brand{
+    font-size: 42px;
+    color: green;
+} 
+a{
+    text-decoration: none;
+}
+a:active, a:visited,a:hover,a:link{
+    color: green;
+    text-decoration: none;
+}

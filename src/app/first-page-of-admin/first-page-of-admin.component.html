@@ -1,0 +1,71 @@
+<!-- --------PARENT OF INSERT UPDATE DEL COMPONENTS-------- -->
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <p class="nav-link"><a routerLink="admin" id="btnActions"> Add Flight </a> <span
+              class="sr-only">(current)</span></p>
+        </li>
+        <div class="vl" style=" border-left: 1px solid skyblue; height: 70px;"></div>
+        <li class="nav-item">
+          <p class="nav-link"><a routerLink="get-details" id="btnActions">Update a flight </a></p>
+
+          <!-- <p class="nav-link"><button id="btnActions" (click)="goToUpdate()">Update a flight </button></p> -->
+        </li>
+        <div class="vl" style=" border-left: 1px solid skyblue; height: 70px;"></div>
+        <li class="nav-item">
+          <p class="nav-link"><a routerLink="delete" id="btnActions">Delete a flight </a> </p>
+        </li>
+        <li>
+          <label style="padding-right:20%;">
+            &nbsp;
+          </label>
+
+        </li>
+        <li>
+       
+          <a>
+            <button (click)="logOut()"  style="position: relative; top:15%;left: 450%; font-size: 18px;" type="button" class="btn btn-info">
+              <span class="	glyphicon glyphicon-log-out"></span>
+              &nbsp;LOGOUT
+            </button>
+          </a>
+        </li>
+        <li>
+          <a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button (click)="goToHome()"  style="position: relative;top:15%; left: 450%;font-size: 18px;" type="button" class="btn btn-info">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              &nbsp;&nbsp;BACK
+            </button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</body>
+
+</html>
+
+
+<!-- --------------old code------------------>
+<!-- <br><br><br>
+<br><br><br>
+<button class="btn btn-success" (click)="goToInsertion()"> Insert </button>
+
+<button class="btn btn-success" (click)="goToUpdate()"> put </button>
+<button class="alert alert-danger" (click)="goToDelete()">Delete </button> 
+<router-outlet></router-outlet> -->

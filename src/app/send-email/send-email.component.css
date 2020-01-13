@@ -1,0 +1,101 @@
+/* ----------------for nav bar starts-------------- */
+ /* ----------------for nav bar starts-------------- */
+ 
+
+ .btnSearchFlights{
+  padding-left:330px;
+  padding-top:-81px;
+}
+#btnSearchFlights {
+  background: transparent;
+  background-color: transparent;
+  border: 1px solid blueviolet;
+  font-size: 21px;
+  font-weight: lighter;
+  font-family: Calibri;
+  color: blueviolet;
+  padding: 10px 15px;
+  border-radius: 0px;
+}
+#btnSearchFlights:hover {
+  background: blueviolet;
+  color: white;
+}
+.navbar-header{
+  font-size:50px; 
+}
+nav{
+  box-shadow: 0.5px 0.5px 20px dimgray;
+  align-content: right;
+  align-items: right;
+  border-radius: 0%;
+  background-color: white;
+  height:80px;
+   border-bottom-color: white;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  transition: .5s;
+  margin-bottom: 50px;
+  }
+  #navigation{
+    margin-bottom: 50px;
+
+  }
+ 
+#HomePageBackground {
+  max-width: 100%;
+  max-height: 89%;
+}
+  ul{
+  display: inline-block;
+  margin-left: 60%;
+}
+ /* ----------------for nav bar ends-------------- */
+
+.divForgetPassword{
+background-color: whitesmoke;
+box-shadow: 0.5px 0.5px 8px dimgray;
+width: 500px;
+padding: 2%;
+border-radius: 2%;
+position: absolute;
+top: 30%;
+left: 25%;
+
+}
+.divUsernamePassword{
+    width: 400px;
+}
+
+
+.info, .success, .warning, .error, .validation {
+    -webkit-animation: seconds 1.0s forwards;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 5s;
+    animation: seconds 1.0s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 2s;
+    position: relative;
+      
+  }
+  @-webkit-keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      left: -9999px; 
+      position: absolute;   
+    }
+  }
+  @keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      left: -9999px;
+      position: absolute;     
+    }
+  }

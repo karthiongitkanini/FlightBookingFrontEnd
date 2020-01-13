@@ -1,0 +1,56 @@
+ 
+<div class="divCancelTicket">
+    <header style="text-align: center;">
+        <!-- <button class="btn btn-success" (click)="goBackToDisplayPage()">Go Back</button> -->
+        <h3>Booking Preview Details</h3>
+    </header>
+    <table *ngFor = "let p of passengers">
+        <tr >
+            
+            <th>Source</th>
+            <td>
+                {{p.S_Id}}
+            </td>
+        </tr>
+        <tr>
+            <th>Destination</th>
+            <td>
+                {{p.Des_Id}}
+            </td>
+        </tr>
+        <tr>
+            <th>Departure Time</th>
+            <td>
+                {{p.Departure_Time}}
+            </td>
+        </tr>
+        <tr>
+            <th>Arrival Time</th>
+            <td>
+                {{p.Arrival_Time}}
+            </td>
+        </tr>
+        <tr>
+            <th>Booked Date</th>
+            <td>
+                {{p.Booked_Date}}
+            </td>
+        </tr>
+        <tr>
+            <th>No Of Passengers</th>
+            <td>
+            {{p.Passenger}}
+            </td>
+        </tr>
+        <tr>
+            <th>Total Fare</th>
+            <td>
+                {{p.Fare}}
+            </td>
+        </tr>
+        
+    </table>
+</div> 
+
+
+

@@ -1,0 +1,106 @@
+<!-- <p>get-details works!</p> -->
+
+
+
+<!-- <form [formGroup]="myForm" (ngSubmit)="Send()" class="getDetails">
+    <div>
+            <label >Enter the flight id</label>
+            <input class="form-control" type="text" 
+            formControlName="fid"/>
+            <span *ngIf="fid.errors && fid.touched">
+                    <span class="alert alert-danger"  *ngIf="fid.errors.required">id cannot be empty</span>
+            </span>  
+            <br><br>
+            <button class="btn btn-success">Submit</button>
+    </div>
+</form>
+<div>
+        <router-outlet></router-outlet>
+</div> -->
+<div class="container ">
+        <div class="row align-items-start">
+            <div class="col-4  form-group">
+                <!-- place the boarding from -->
+                <label>SELECT SOURCE</label>
+                <select class="form-control"
+                        [(ngModel)]="del.Source"
+                        required 
+                        (change)="changesource($event)"
+                        [ngClass]="{invalid:result==='Required fields cannot be empty'}">
+                    <option selected hidden>boarding from?</option>
+                    <option *ngFor="let p of place">
+                        {{p}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-4 form-group">
+                <!-- place the landing in here -->
+                <label>SELECT DESTINATION</label>
+                <select class="form-control" 
+                        [ngClass]="{invalid:result==='Required fields cannot be empty'}"                 
+                        [(ngModel)]="del.Destination" 
+                        required 
+                        (change)="changedestination($event)">
+    
+                    <option selected hidden>landing in?</option>
+                    <option *ngFor="let p of place">
+                        {{p}}
+                    </option>
+    
+                </select>
+                <div class="help-block" *ngIf="del.Destination===del.Source && del.Destination!=null" style="color: red;"> source and
+                    destination cannot be same
+                </div>
+            </div>
+            <div class="col-4 form-group">
+                <!-- place the date here -->
+                <label>DATE</label>
+                <input class="form-control"
+                       required 
+                       min="2020-01-01" 
+                       max="2020-01-31" 
+                       type="date"
+                       maxlength="50"   
+                       #dt="ngModel"
+                       name="dt" 
+                       [(ngModel)]="del.Date" 
+                       (change)="changedate($event)"
+                       [ngClass]="{invalid:result==='Required fields cannot be empty'}">                   
+            </div>
+        </div>
+         
+        <div class="row align-items-center">
+            <div style="background-color:transparent;" class="col-6 col-md-offset-3 dropdownFlightid form-group">
+                <!-- place the enter the flight id textbox -->
+                <label>Choose the FLIGHT ID to Update a flight:</label> 
+                <select class="form-control" 
+                        required 
+                        [(ngModel)]="del.Fd_Id"
+                        [ngClass]="{invalid:result==='Required fields cannot be empty'}">                    
+                    <option value="undefined" selected hidden>--Select flight Id--</option>
+                    <option *ngFor="let t of ids">
+                        {{t}}
+                    </option>
+                </select>  
+            </div>
+        </div>
+    
+     
+    
+        <div class="row align-items-end">
+             <div class="col-md-offset-4 col-6  ">
+                <button class="button button--wayra button--border-thin button--round-s" (click)="Send()">
+                   S U B M I T
+                </button>
+                  <!-- <button class="btn btn-primary" (click)="deleteFlightDetails()">Delete</button> -->
+            </div>
+    
+            <div class="col-md-offset-4 col-6">
+                
+                <h5 [ngStyle]="{'color':result != 'Required fields cannot be empty' ? 'green' : 'red' }"> 
+                    {{result}} 
+                </h5>
+            </div>
+        </div>
+    </div>
+    

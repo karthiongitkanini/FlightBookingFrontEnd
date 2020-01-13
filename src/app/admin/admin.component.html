@@ -1,0 +1,105 @@
+<div class="divInsertFlights">
+    <br><br><br>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div> 
+            <label  >Flight id</label>
+            <input class="form-control" type="text" maxlength="50" required #fid="ngModel" name="fid"
+                [(ngModel)]="adm.Ft_id" [ngClass]="{ 'is-invalid':fid.errors && fid.touched && f.submitted }">
+            <span *ngIf="fid.errors && f.submitted " style="color: red;">
+                <span *ngIf="fid.errors.required">Flight Id cannot be empty</span>
+                <span *ngIf="fid.errors.pattern"></span>
+
+            </span>
+        </div>
+        <div>
+            <label>  Starting point</label>
+            <input class="form-control" type="text" maxlength="20" required pattern="[A-Z]+" #stp="ngModel" name="stp"
+                [(ngModel)]="adm.Source_id" [ngClass]="{ 'is-invalid': stp.errors && stp.touched && f.submitted }">
+            <span *ngIf="stp.errors && f.submitted" style="color: red;">
+                <span *ngIf="stp.errors.required">Starting point cannot be empty</span>
+                <span *ngIf="stp.errors.pattern">invalid Starting point </span>
+            </span>
+        </div>
+        <div>
+            <label>Destination</label>
+            <input class="form-control" type="text" maxlength="20" required pattern="[A-Z]+" #dst="ngModel" name="dst"
+                [(ngModel)]="adm.Destination_id" [ngClass]="{ 'is-invalid': dst.errors && dst.touched && f.submitted }">
+            <span *ngIf="dst.errors  && f.submitted" style="color: red;">
+                <span *ngIf="dst.errors.required">Destination cannot be empty</span>
+                <span *ngIf="dst.errors.pattern">Destination cannot be number</span>
+            </span>
+        </div>
+        <div>
+            <label>Departure Time</label>
+            <input class="form-control" type="time" maxlength="50" required #dpt="ngModel" name="dpt"
+                [(ngModel)]="adm.Departue"
+                (change)="changeDeparture($event)"
+                 [ngClass]="{ 'is-invalid': dpt.errors && dpt.touched && f.submitted }">
+            <span *ngIf="dpt.errors  && f.submitted" style="color: red;">
+                <span *ngIf="dpt.errors.required">Departure Time cannot be empty</span>
+                <span *ngIf="dpt.errors.pattern"></span>
+            </span>
+        </div>
+        <div>
+            <label>Arrival time</label>
+            <input class="form-control" type="time" maxlength="50" required #art="ngModel"
+             name="art" (change)="changeArrival($event)"
+                [(ngModel)]="adm.Arrival" [ngClass]="{ 'is-invalid': art.errors && art.touched && f.submitted }">
+            <span *ngIf="art.errors  && f.submitted" style="color: red;">
+                <span *ngIf="art.errors.required">Arrival time cannot be empty</span>
+                <span *ngIf="art.errors.pattern"></span>
+            </span>
+        </div>
+        <div>
+            <label>Date</label>
+            <input class="form-control" min="2019-12-01" max="2019-12-31" type="date" maxlength="50" required
+                #dt="ngModel" name="dt" [(ngModel)]="adm.Dateid" id="myDate"
+                [ngClass]="{ 'is-invalid': dt.errors && dt.touched && f.submitted }">
+            <span *ngIf="dt.errors && f.submitted" style="color: red;">
+                <span *ngIf="dt.errors.required">date cannot be empty</span>
+                <span *ngIf="dt.errors.pattern"></span>
+            </span>
+        </div>
+        <div>
+            <label>Duration</label>
+            <!-- <div style="border: 1px solid dimgray; width:300px; height:50px"> {{choice}}
+            </div> -->
+            <table>
+                <tr>
+                    <td class="form-control"><label style="color:black;font-weight:normal;">{{duration}}</label></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            <label>Fare</label>
+            <input class="form-control" type="text" maxlength="7" required pattern="[0-9]+" #fr="ngModel" name="fr"
+                [(ngModel)]="adm.Fare" [ngClass]="{ 'is-invalid': fr.errors && fr.touched && f.submitted } ">
+            <span *ngIf="fr.errors  && f.submitted" style="color: red;">
+                <span *ngIf="fr.errors.required">Fare cannot be empty</span>
+                <span *ngIf="fr.errors.pattern">invalid Fare</span>
+            </span>
+        </div>
+        <br> 
+        
+        <button class="btn btn-success" style="position: relative;
+          width: 500px; font-size: 22px; padding: 8px;">submit</button>
+    </form>
+ </div><br><br>
+ <div *ngIf="result==='added'" style="width: 368px;padding:0px 0px 2px 70px;height: 130px;background-color: lightsalmon
+ ;position: absolute;left: 73%;top: 37%;">
+ <h3>successfully added</h3>
+
+ </div>
+
+ <div *ngIf="result==='fail'" style="width: 368px;padding:0px 0px 2px 70px;height: 130px;background-color: lightsalmon
+ ;position: absolute;left: 73%;top: 37%;">
+ <h3>Please insert a correct Flight Id</h3>
+ 
+
+ </div>
+ <!-- <select>
+    <option>all</option>
+</select> -->
+
+

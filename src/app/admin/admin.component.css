@@ -1,0 +1,17 @@
+.divInsertFlights{
+    width: 500px;
+    height: 700px;
+    position: relative;
+    left: 30%;
+}
+label{
+    font-size: 18px;
+    color: blue;
+}
+td{
+   border: 1px solid;
+   color:darkgray;
+   width: 500px;
+   height:35px; 
+   padding-left: 10px;
+}

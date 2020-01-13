@@ -1,0 +1,25 @@
+<div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Input">
+        </mat-form-field><br/>
+      
+        <mat-form-field>
+          <textarea matInput placeholder="Textarea"></textarea>
+        </mat-form-field><br/>
+      
+        <mat-form-field>
+          <mat-select placeholder="Select">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>  <br/>
+
+        {{data.myvar}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <button class="btn btn-success" (click)="save()">
+              login
+            </button> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+            <button mat-button mat-dialog-close (click)="save()">
+                    close
+                  </button> 
+       </div>

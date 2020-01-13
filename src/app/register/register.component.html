@@ -1,0 +1,127 @@
+<!-- -----------NAVIGATION BAR STARTS------------ -->
+<div id="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+ 
+        <a class="navbar-brand" >
+          <img src="../assets/Images/favicon.png" alt="logo"
+            style="width:90px; height:90px; position: absolute; top: -13%; left:8%;">
+        </a>
+        <a class="navbar-brand"  
+          style=" position:absolute; font-size:40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; position: absolute; color:black;display:inline-block;margin-left: -5%;  margin-top:0%; top:15%">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Breeze
+          Airways  </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p style="margin-top: -80%; margin-left: 20%; position: absolute;">
+            <button style="font-size: 17px;" type="button" (click)="goToLogin()" class="btn btn-info">
+              <span style="font-size: 17px;" class="glyphicon glyphicon-chevron-left"></span>
+              &nbsp;&nbsp;LOGIN
+            </button>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<!-- --------------------NAVIGATION BAR ENDS--------- -->
+<!-- --------------------NAVIGATION BAR ENDS--------- -->
+<br><br><br><br><br><br><br><br>
+
+<div class="login-wrapper" style="font-size: 22px;" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card style="background-color: whitesmoke; margin-top: -25px; width: 600px" class="box">
+    <mat-card-header>
+      <!-- <mat-card-title>Register with Breeze Airways </mat-card-title> -->
+    </mat-card-header>
+    <form class="example-form" name="form" (ngSubmit)="f.form.valid && createUser()" #f="ngForm" novalidate>
+      <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center center" class="row">
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+            <div fxLayout="column" fxLayoutAlign="center stretch" class="row">
+              <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="First Name" [(ngModel)]="reg.Firstname" name="fname" pattern="[a-zA-Z]*" required>
+                  <mat-icon matPrefix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Last Name" [(ngModel)]="reg.Lastname" name="lname" pattern="[a-zA-Z]*" required>
+                  <mat-icon matPrefix>person</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center" class="row">
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+            <div fxLayout="column" fxLayoutAlign="center stretch" class="row">
+              <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Email ID" [(ngModel)]="reg.Username" type="email" name="email" #userEmail
+                    required>
+                  <mat-icon matPrefix>mail</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Mobile Number" [(ngModel)]="reg.Phonenumber" name="mobile" maxlength="10" minlength="10" pattern="[0-9]*" required>
+                  <mat-icon matPrefix>call</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center" class="row">
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+            <div fxLayout="column" fxLayoutAlign="center stretch" class="row">
+              <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+                <mat-form-field class="example-full-width">
+                  <!-- <label> Password </label> -->
+                  <input matInput placeholder="Enter Password" [(ngModel)]="reg.Password" type="password"
+                    name="password" #userPwd required pattern=".{8,}" #password ="ngModel">
+                    <span *ngIf="password.errors">
+                      <span *ngIf="password.errors.pattern" >Password must be greater than 8 characters </span>
+                    </span>
+                  <mat-icon matPrefix>lock</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center" class="row">
+          <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+            <div fxLayout="column" fxLayoutAlign="center stretch" class="row">
+              <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+
+                <mat-form-field>
+                  <mat-label>Date of Birth</mat-label>
+                  <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" placeholder="Choose a date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button mat-stroked-button color="primary" style="font-size: x-large;padding: 2%;" class="btn-block"
+          >Register</button>
+      </mat-card-content>
+    </form>
+  </mat-card>
+</div>
+
+<!-- --------------toast notifications--------- -->
+
+<div *ngIf="result==='added'"
+  style="width: 368px; padding:0px 0px 2px 70px; height: 130px; background-color:
+   lightgreen;position: absolute; left: 73%; top: 37%;">
+  <h3>successfully registered!</h3>
+  <h5>&nbsp;&nbsp;&nbsp;&nbsp;proceed with login</h5>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button (click)="goToLogin()" mat-raised-button>Login</button>
+</div>
+<div *ngIf="result==='notadded'"
+  style="width: 368px; padding:0px 0px 2px 70px; height: 130px; background-color:
+   lightsalmon;position: absolute; left: 73%; top: 37%;">
+  <h3> failed try again!</h3>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </div>

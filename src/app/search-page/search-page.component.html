@@ -1,0 +1,377 @@
+<!-- -----------NAVIGATION BAR STARTS------------ -->
+<div id="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+
+        <!-- -----SIDE NAV--------- -->
+        <!-- <div id="mySidenav" style="overflow:hidden;" class="sidenav">
+            <button
+              style="font-size:30px;cursor:pointer;color:blueviolet; border:2px solid blueviolet; background: transparent;"
+              (click)="closeNavbu()" class="closebtn">&times;</button>
+             <a routerLink="">Flight details</a>
+            <a routerLink="">User Details</a>
+            <a routerLink="">Ticket Details</a>
+            <a routerLink="">Log out</a>
+             <button (click)="goToCancel()">cancel</button>
+          </div>
+          <button 
+            style="font-size:40px;cursor:pointer; border:none; background: transparent;  position: absolute;left: 0px; top: 6px; margin-top:0px;margin-left:0px;"
+            (click)="openNavbu()"> 
+            <span>&#9776;</span></button> -->
+
+        <button [hidden]="token===null"
+          style="font-size:40px;cursor:pointer; border:none; background: transparent;  position: absolute;left: 0px; top: 6px; margin-top:0px;margin-left:0px;"
+          (click)="goToHomePageWithIcons()">
+          <span>&#9776;</span></button>
+
+        <!-- -----SIDE NAV ends--------- -->
+
+        <a class="navbar-brand">
+          <img src="../assets/Images/favicon.png" alt="logo"
+            style="width:90px; height:90px; position: relative; top: -200%; left: 40%;">
+        </a>
+        <a class="navbar-brand"
+          style="font-size:40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; position: absolute; color:black;display:inline-block;margin-left: -5%;  margin-top:0%; top:15%">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Breeze
+          Airways </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a>
+            <button style="font-size: 19px;" (click)="goToLogin()" [hidden]="token!=null" type="button"
+              class="btn btn-info">
+              <span class="glyphicon glyphicon-log-out"></span>
+              &nbsp;Login or Register
+            </button>
+          </a>
+        </li>
+        <!-- <li>
+          <div style="border-left: 1px solid blueviolet; height: 60px;"></div>
+        </li> -->
+        <li>
+          <!-- <a>
+            <button (click)="goToRegister()" type="button" [hidden]="tokenExists" class="btn btn-info">
+              <span class="glyphicon glyphicon-home"></span>
+              &nbsp;&nbsp;LOGOUT
+            </button>
+          </a> -->
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div style="position: fixed;right: 5%;top: 2%; z-index: 299; display: flex;flex-direction: row;">
+  <div [hidden]="token===null" class="dropdown">
+    <button class="dropbtn"><span class="glyphicon glyphicon-user"></span> </button>
+    <label style="font-size:22px;">
+      &nbsp;&nbsp;Hello {{username}}!</label>
+    <div class="dropdown-content">
+      <!-- <a (click)="goToChangePassword()">Change Password</a>
+      <a (click)="goToChangeAccountDetails()">Change account details</a> -->
+      <a (click)="changePassword()">Change Password</a>
+      <a>Account settings</a>
+      <a (click)="logOut()">Log Out</a>
+    </div>
+  </div>
+</div>
+
+<!-- -----------NAVIGATION BAR ENDS------------ -->
+
+<!-- ---------------BG IMAGE------------ -->
+
+<div class="imgbox">
+  <img id="HomePageBackground" src="../assets/Images/MinimalBG.png" title="Breeze Airways" alt="Flight Home Page"
+    height=auto>
+  <!-- ---------------GLOBE IMAGE---------- -->
+  <div style="height: 200px; width: 200px; position:absolute;top: 12%; left:50%; ">
+    <img src="../assets/Images/globe.png" style="width:600px;height:600px;">
+  </div>
+</div>
+<!-- ------------LOGO CAPTIONS STARTS---------- -->
+<div style="  position:absolute;top: 18%; left:8%; ">
+  <h4 style="padding-left: 4%; font-size: 25px;"><i>Don't just fly</i></h4>
+  <h1 style="font-size: 95px;">
+    <i>
+      FLY BETTER
+    </i>
+  </h1>
+  <h5 style="padding-left: 57%; font-size: 20px;">
+    with Breeze Airways
+  </h5>
+</div>
+<!-- ------------LOGO CAPTIONS ENDS---------- -->
+
+
+<!-- -------------1.SOURCE , DESTINATION, SEARCH FLIGHTS, DISPLAY FLIGHTS ------STARTS-------- -->
+<div class="form-group" id="SearchPage" [ngStyle]="{'background-image': getUrl()}">
+  <!-- <div>
+    <h1>
+        SEARCH YOUR FLIGHTS NOW
+      </h1>
+  </div>
+  <div class="break"><br /><br /><br /></div> -->
+
+  <div class="boarding">
+    <label for="sel1">DEPARTURE AIRPORT</label>
+    <select id="sel1" class="form-control" (change)="selectedSource($event)" required>
+      <option selected hidden>boarding from?</option>
+      <option value="{{p}}" *ngFor="let p of place">
+        {{p}}
+      </option>
+    </select>
+  </div>
+
+  <div class="landing">
+    <label>ARRIVAL AIRPORT</label>
+    <select class="form-control" id="sel2" (change)="selectedDestination($event)" required>
+      <option selected hidden>landing in?</option>
+      <option value="{{p}}" *ngFor="let p of place">
+        {{p}}
+      </option>
+    </select>
+  </div>
+
+  <div class="boardingDate">
+    <!-- <input type="date" class="form-control" (change)="selectedDate($event)" /> -->
+    <p>
+      <label>BOARDING DATE</label>
+      <br />
+
+      <input required style="width: 280px; height: 50px;" type="date" min="2020-01-01" max="2020-01-31"
+        (change)="selectedDate($event)" id="boardingDate" class="form-control" placeholder="Choose a date" />
+
+      <!-- -----SIMPLE WITH CHANGE EVENT----- -->
+      <!-- <mat-form-field class="example-full-width">
+          <input matInput [min]="minDate" [max]="maxDate" (dateChange)="selectedDate($event)" [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
+
+      <!-- <mat-form-field class="example-full-width">
+              <input matInput (change)="selectedDate($event)" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date">
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <button mat-mini-fab color="primary" (click)="picker.open()">pick</button> -->
+    </p>
+  </div>
+
+  <div class="break"><br /><br /><br /></div>
+
+  <div>
+    <br /><br />
+    <label>Minimum Cost</label>
+    <h4><BR> {{price|currency:'INR'}} </h4>
+    <!-- <select style="width: 280px; height: 50px; padding-top:2%; " class="form-control" id="travelClass" required>
+      <option selected>Economy</option>
+      <option>Business class</option>
+      <option>First class</option>
+    </select> -->
+  </div>
+
+  <!-- <div style=" padding-top:2%;">
+        <br/><br/> 
+        <label>TRAVEL TYPE</label>
+        <br/>
+        <mat-checkbox color="primary" style="width: 280px; height: 50px; padding-top:8%;">ONE WAY</mat-checkbox>
+       </div> -->
+  <div style=" padding-top:4%; padding-left: 0%;" id="passengers">
+    <label>PASSENGER COUNT</label>
+    <br />
+    <input type="number" (change)="selectedPassengercount($event)" class="form-control" id="count"
+      placeholder="number of pass." min="1" max="4" minlength="1">
+  </div>
+
+  <div class="searchFlightsButton" style="display: inline-block;">
+    <br /><br />
+    <button (click)="submit()" class="btnSearchFlights" id="btnSearchFlights">SEARCH FLIGHTS </button>
+    <!-- <div style="font: size 45px;">
+      {{price|currency:'INR'}}
+    </div> -->
+    <p *ngIf="!hide" style="font-size:19px;  color:red">
+      {{result}}
+    </p>
+  </div>
+  <div *ngIf="message==='false'">
+    no flights found</div>
+
+  <div class="break"><br /><br /></div>
+
+  <!-- -------2.DISPLAYING THE FLIGHT DETAILS STARTS----------- -->
+  <div style="font-size:22px;border-top-color: blueviolet;" *ngIf="correctData">
+    <div>
+      <br>
+      <hr>
+      <br>
+      <h1 style="font-size:48px;font-weight: lighter; color: blueviolet; position: relative; top:8%; left: 40%;">
+        Flight List</h1>
+      <br>
+    </div>
+    <div *ngFor="let f of flightshow" style="width: 1000px; display: inline-block;">
+      <mat-card class="divDisplayingFlights">
+        <div>
+          <mat-card-title>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            BA{{f.Flightid}}
+          </mat-card-title><br>
+          {{f.Arrivaltime}}
+          <img src="../assets/Images/fromto.png" style="width: 200px; height: 90px;">
+          {{f.Departuretime}}
+          <mat-card-title style="font-weight: lighter;position: relative; left:35%;">&nbsp;&nbsp;&nbsp;{{f.Duration}}
+          </mat-card-title>
+        </div>
+        <div>
+          <br>
+          <br>
+          <mat-card-title> {{f.Fare|currency:'INR'}}/-
+            <mat-card-subtitle>
+              *inclusive of all taxes
+            </mat-card-subtitle>
+          </mat-card-title>
+        </div>
+        <div>
+          <br>
+          <br>
+          <a routerlink="displayAfterBooknow">
+            <button class="btnSearchFlights" id="btnSearchFlights" (click)="bookNow(f.Flightid)">Book Now</button>
+          </a>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <!-- -------2.DISPLAYING THE FLIGHT DETAILS ENDS----------- -->
+</div>
+<!-- -------------1.SOURCE , DESTINATION, SEARCH FLIGHTS,DISPLAY FLIGHTS ------ENDS-------- -->
+
+<!-- ----------FOR ADVERTISEMENT CARDS------------------- -->
+<div *ngIf="correctData" id="divCards" style="position: relative; left:6.1%;max-width: 90%;border-radius: 13px;
+   margin-top:34%; box-shadow: 5px 7px 13px dimgray;">
+  <div>
+    <br><br><br>
+    <h3>Popular Destinations from <a href="https://www.tripsavvy.com/top-tourist-places-in-india-1539731"
+        title="Top 16 Indian tour destinations" target="_blank">{{selectSource}}</a> </h3>
+  </div>
+
+  <div class="break"><br /><br /><br /></div>
+  <br>
+  <br /><br /><br />
+
+  <div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="GoaImage"></div>
+        <mat-card-title>Amritsar</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="../assets/Images/amritstar.jpg" alt="Photo of a Shiba Inu">
+
+      <mat-card-content>
+        <p>
+          Amritsar is a city in the northwestern Indian state of Punjab, 28 kilometers from the border with Pakistan.
+          At the center of its walled old town, the gilded Golden Temple (Harmandir Sahib) is the holiest gurdwara
+          (religious complex) of the Sikh religion.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="BangkokImage"></div>
+        <mat-card-title>Bangkok</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="../assets/Images/bangkok.jpg" alt="Photo of a Shiba Inu">
+
+      <mat-card-content>
+        <p>
+          Bangkok, Thailand’s capital, is a large city known for ornate shrines and vibrant street life.
+          The boat-filled Chao Phraya River feeds its network of canals, flowing past the Rattanakosin royal district,
+          home to opulent Grand Palace and its sacred Wat Phra Kaew Temple.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="AmristerImage"></div>
+        <mat-card-title>Goa</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="../assets/Images/goa.jpg" alt="Photo of a Shiba Inu">
+
+      <mat-card-content>
+        <p>
+          Goa is a state in western India with coastlines stretching along the Arabian Sea.
+          Its long history as a Portuguese colony prior to 1961 is evident in its preserved 17th-century churches and
+          the area’s tropical spice plantations. </p>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+  <div class="break"><br /><br /><br /></div>
+  <br>
+  <br /><br /><br />
+
+  <div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="GoaImage"></div>
+        <mat-card-title>Mumbai</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="../assets/Images/mumbai.jpg" alt="Photo of a Shiba Inu">
+
+      <mat-card-content>
+        <p>
+          Mumbai (formerly called Bombay) is a densely populated city on India’s west coast.
+          A financial center, it's India's largest city.
+          On the Mumbai Harbour waterfront stands the iconic Gateway of India stone arch, built by the British Raj in
+          1924. </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="BangkokImage"></div>
+        <mat-card-title>Jaipur</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="../assets/Images/jaipur.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          Jaipur is the capital of India’s Rajasthan state.
+          It evokes the royal family that once ruled the region and that, in 1727, Old
+          City, or “Pink City” for its trademark building color.
+          At the center of its stately street grid stands the opulent. </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+  <div>
+
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="AmristerImage"></div>
+        <mat-card-title>Hyderabad</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="../assets/Images/hyderabad.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          Hyderabad is the capital of southern India's Telangana state.
+          A major center for the technology industry, it's home to many upscale restaurants and shops.
+          Its historic sites include Golconda Fort, a former diamond-trading center that was once the Qutb Shahi
+          dynastic capital. </p>
+      </mat-card-content>
+    </mat-card><br><br>
+  </div>
+</div>
+<!-- ----------FOR ADVERTISEMENT CARDS ENDS------------------- -->
+
+<div *ngIf="correctData">
+  <br><br><br>
+</div>

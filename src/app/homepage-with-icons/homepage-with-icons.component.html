@@ -1,0 +1,56 @@
+     <div>
+        <button 
+        style="font-size:40px;cursor:pointer; border:none; background: transparent;  position: absolute;left: 3px; top: -30px;"
+        (click)="goToSearchPage()"> 
+        <span style="font-size: 80px;">&times;</span></button>
+         <!-- <button mat-raised-button (click)="goToLogin()" style="font-size: 22px; position: absolute;right: 15px; top: 15px;">LOG OUT</button> -->
+     </div>
+<div id="icons">
+    <div class="divSearch">
+        <button  (click)="goToSearch()" style="background: transparent;border: none;">
+        <img style="width: 160px; height:160px ; border-radius: 50%;" src="../assets/Images/searchIcon.jpg"
+            title="search and book flights" alt="search and book flights" height=auto>
+            <br> <br> <br>
+            <h1>SEARCH AND BOOK</h1>
+        </button>
+        
+         <!-- <br> <br><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button   class="btn btn-success">search and book</button> -->
+    </div>
+    <div class="divPreview">
+        <button  (click)="goToPreviewBookings()" style="background: transparent;border: none;">
+         <img style="width: 160px; height:160px ; border-radius: 50%;"  src="../assets/Images/PreviewIcon.png"
+            title="preview booked tickets" alt="preview booked tickets" height=auto>
+            <br> <br> <br>
+            <h1>MY BOOKINGS</h1>
+        </button>
+         <!-- <br> <br><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-success">preview booked tickets</button> -->
+    </div>
+
+    <div class="divCancel">
+        <br>
+        <button (click)="goToCancel()" style="background: transparent;border: none;">
+         <img style="width: 130px; height:130px ;"  src="../assets/Images/cancelIcon.png" title="cancel tickets"
+            alt="cancel tickets" height=auto>
+            <br> <br> <br><br>
+            <h1>CANCEL TICKETS</h1>
+        </button>
+
+        <!-- <br> <br><br> <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-success">cancel tickets</button> -->
+    </div>
+    <div class="divAdmin">
+        <button (click)="goToAdmin()" style="background: transparent;border: none;">
+            <img style="width: 160px; height:170px ; border-radius: 50%;"  src="../../assets/Images/adminIcon2.png"
+            title="Only admin" alt="Only admin" height=auto>
+            <br> <br> <br>
+            <h1>ADMINISTRATOR</h1>
+        </button>
+     </div>
+</div>
+
+<!-- <a routerLink="/firstPageOfAdmin">Admin</a> -->
